@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPS Education - 교육 출판사</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for smooth transitions */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        /* 드롭다운 메뉴에 마우스가 있을 때도 유지 */
+        .dropdown-menu:hover {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion-content.open {
+            max-height: 2000px;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header Container -->
+    <div id="header-container"></div>
+    <script src="header.js"></script>
+
+    <!-- Hero Section -->
+    <section class="relative bg-white py-16 md:py-24 overflow-hidden">
+        <!-- Background Shapes -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full opacity-20 blur-3xl"></div>
+        <div class="absolute bottom-20 right-32 w-96 h-96 bg-gradient-to-tl from-pink-300 to-yellow-300 rounded-full opacity-15 blur-3xl"></div>
+        <div class="absolute top-40 left-20 w-64 h-64 bg-gradient-to-br from-orange-300 to-pink-400 rounded-full opacity-10 blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left: Text Content -->
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                        Inspiring futures, empowering learners
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-md">
+                        Our solutions adapt to student needs, providing personalized learning experiences that inspire growth and achievement in every learner.
+                    </p>
+                    <a href="#programs" class="inline-block bg-yellow-400 text-gray-900 font-semibold rounded-full px-6 py-3 hover:bg-yellow-500 transition">
+                        Our Programs
+                    </a>
+                </div>
+                
+                <!-- Right: Image -->
+                <div class="relative">
+                    <div class="relative z-10">
+                        <img src="https://placehold.co/500x400?text=Education+Image" alt="Education" class="rounded-lg shadow-2xl">
+                    </div>
+                    <!-- Decorative shapes behind image -->
+                    <div class="absolute -top-4 -right-4 w-32 h-32 bg-yellow-300 rounded-full opacity-30 blur-xl"></div>
+                    <div class="absolute -bottom-4 -left-4 w-40 h-40 bg-orange-300 rounded-full opacity-30 blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Books Section -->
+    <section id="programs" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">Our Programs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- COURSEBOOK Card -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">COURSEBOOK</h3>
+                    <p class="text-gray-600 mb-4">체계적인 커리큘럼으로 단계별 영어 학습을 제공하는 교재 시리즈입니다.</p>
+                    <a href="#" class="inline-block px-4 py-2 bg-yellow-400 text-gray-900 rounded-full hover:bg-yellow-500 font-semibold transition">자세히 보기</a>
+                </div>
+
+                <!-- READING Card -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">READING</h3>
+                    <p class="text-gray-600 mb-4">다양한 주제의 읽기 교재로 독해력과 어휘력을 향상시킵니다.</p>
+                    <a href="#" class="inline-block px-4 py-2 bg-yellow-400 text-gray-900 rounded-full hover:bg-yellow-500 font-semibold transition">자세히 보기</a>
+                </div>
+
+                <!-- WRITING Card -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6">
+                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">WRITING</h3>
+                    <p class="text-gray-600 mb-4">체계적인 작문 교재로 영작 실력을 단계적으로 향상시킵니다.</p>
+                    <a href="#" class="inline-block px-4 py-2 bg-yellow-400 text-gray-900 rounded-full hover:bg-yellow-500 font-semibold transition">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-gray-900 mb-8">학습 자료실 (Downloads)</h2>
+            
+            <!-- Book Series Selector -->
+            <div class="mb-8">
+                <label class="block text-lg font-semibold text-gray-700 mb-3">도서 시리즈 선택</label>
+                <select id="book-series" class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    <option value="word-explorer">WORD EXPLORER</option>
+                    <option value="reading-2">Reading 2</option>
+                    <option value="reading-3">Reading 3</option>
+                </select>
+            </div>
+
+            <!-- Accordion for Levels -->
+            <div class="space-y-2">
+                <!-- LEVEL A -->
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition" data-level="A">
+                        <span class="text-lg font-semibold text-gray-900">LEVEL A</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200">
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <div class="flex-shrink-0">
+                                    <img src="https://placehold.co/200x280?text=WORD+EXPLORER+LEVEL+A" alt="LEVEL A" class="rounded-lg shadow-md">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-semibold text-gray-900 mb-4">LEVEL A 학습 자료</h4>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                                            <div class="flex-shrink-0">
+                                                <a href="#" class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-yellow-500 transition">
+                                                    <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M8 5v14l11-7z"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold text-gray-900">오디오 (Audio)</p>
+                                                <p class="text-sm text-gray-600 mt-1">MP3 다운로드</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                                            <div class="flex-shrink-0">
+                                                <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+                                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold text-gray-900">단어리스트 (Word List)</p>
+                                                <p class="text-sm text-gray-600 mt-1">PDF 다운로드</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVEL B -->
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition" data-level="B">
+                        <span class="text-lg font-semibold text-gray-900">LEVEL B</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200">
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <div class="flex-shrink-0">
+                                    <img src="https://placehold.co/200x280?text=WORD+EXPLORER+LEVEL+B" alt="LEVEL B" class="rounded-lg shadow-md">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-semibold text-gray-900 mb-4">LEVEL B 학습 자료</h4>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                                            <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
+                                            </svg>
+                                            <div class="flex-1">
+                                                <p class="font-medium text-gray-900">오디오 (Audio)</p>
+                                                <div class="mt-2 space-x-3">
+                                                    <a href="#" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-sm">QR 코드 보기</a>
+                                                    <a href="#" class="inline-block px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition text-sm">MP3 다운로드</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                                            <svg class="w-8 h-8 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                            </svg>
+                                            <div class="flex-1">
+                                                <p class="font-medium text-gray-900">단어리스트 (Word List)</p>
+                                                <div class="mt-2">
+                                                    <a href="#" class="inline-block px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition text-sm">PDF 다운로드</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVEL C through H -->
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition" data-level="C">
+                        <span class="text-lg font-semibold text-gray-900">LEVEL C</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200">
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <div class="flex-shrink-0">
+                                    <img src="https://placehold.co/200x280?text=WORD+EXPLORER+LEVEL+C" alt="LEVEL C" class="rounded-lg shadow-md">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-semibold text-gray-900 mb-4">LEVEL C 학습 자료</h4>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                                            <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
+                                            </svg>
+                                            <div class="flex-1">
+                                                <p class="font-medium text-gray-900">오디오 (Audio)</p>
+                                                <div class="mt-2 space-x-3">
+                                                    <a href="#" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-sm">QR 코드 보기</a>
+                                                    <a href="#" class="inline-block px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition text-sm">MP3 다운로드</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                                            <svg class="w-8 h-8 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                            </svg>
+                                            <div class="flex-1">
+                                                <p class="font-medium text-gray-900">단어리스트 (Word List)</p>
+                                                <div class="mt-2">
+                                                    <a href="#" class="inline-block px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition text-sm">PDF 다운로드</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition" data-level="D">
+                        <span class="text-lg font-semibold text-gray-900">LEVEL D</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200">
+                            <div class="text-center py-8 text-gray-500">
+                                <p>LEVEL D 학습 자료 준비 중입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition" data-level="E">
+                        <span class="text-lg font-semibold text-gray-900">LEVEL E</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200">
+                            <div class="text-center py-8 text-gray-500">
+                                <p>LEVEL E 학습 자료 준비 중입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition" data-level="F">
+                        <span class="text-lg font-semibold text-gray-900">LEVEL F</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200">
+                            <div class="text-center py-8 text-gray-500">
+                                <p>LEVEL F 학습 자료 준비 중입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition" data-level="G">
+                        <span class="text-lg font-semibold text-gray-900">LEVEL G</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200">
+                            <div class="text-center py-8 text-gray-500">
+                                <p>LEVEL G 학습 자료 준비 중입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition" data-level="H">
+                        <span class="text-lg font-semibold text-gray-900">LEVEL H</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200">
+                            <div class="text-center py-8 text-gray-500">
+                                <p>LEVEL H 학습 자료 준비 중입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">TPS Education</h3>
+                    <p class="text-gray-400">해외 원서 전문 교육 출판사로 최고의 학습 자료를 제공합니다.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">회사 정보</h3>
+                    <p class="text-gray-400 mb-2">(주)TPS Education</p>
+                    <p class="text-gray-400 mb-2">서울특별시 강남구 테헤란로 123</p>
+                    <p class="text-gray-400 mb-2">Tel: 02-1234-5678</p>
+                    <p class="text-gray-400">Email: info@tpseducation.co.kr</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">빠른 링크</h3>
+                    <ul class="space-y-2">
+                        <li><a href="company.html" class="hover:text-white transition">회사소개</a></li>
+                        <li><a href="#" class="hover:text-white transition">학습 자료실</a></li>
+                        <li><a href="#" class="hover:text-white transition">고객지원</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">Copyright © 2025 TPS Education. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion Toggle (page-specific script)
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for header to load, then initialize accordion
+            setTimeout(() => {
+                document.querySelectorAll('.accordion-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const content = btn.nextElementSibling;
+                        const arrow = btn.querySelector('svg');
+                        const isOpen = content.classList.contains('open');
+
+                        // Close all other accordions
+                        document.querySelectorAll('.accordion-content').forEach(acc => {
+                            if (acc !== content) {
+                                acc.classList.remove('open');
+                            }
+                        });
+                        document.querySelectorAll('.accordion-btn svg').forEach(svg => {
+                            if (svg !== arrow) {
+                                svg.classList.remove('rotate-180');
+                            }
+                        });
+
+                        // Toggle current accordion
+                        content.classList.toggle('open');
+                        arrow.classList.toggle('rotate-180');
+                    });
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
