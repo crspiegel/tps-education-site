@@ -1,0 +1,49 @@
+/* Global site styles */
+body {
+	font-family: 'Inter', sans-serif;
+}
+
+/* Dropdown menus */
+.dropdown {
+	position: relative;
+}
+.dropdown-menu {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	pointer-events: none;
+	z-index: 50;
+}
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+/* Keep dropdown visible when hovering the menu itself */
+.dropdown-menu:hover {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+/* Mobile slide-in menu */
+.mobile-menu {
+	transform: translateX(-100%);
+	transition: transform 0.3s ease;
+}
+.mobile-menu.open {
+	transform: translateX(0);
+}
+
+/* Accordion */
+.accordion-content {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease;
+}
+.accordion-content.open {
+	max-height: 2000px;
+}
+
+
